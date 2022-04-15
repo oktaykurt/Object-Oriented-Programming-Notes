@@ -15,6 +15,7 @@ public:
     bool operator>(const Date &other);
     void operator++();
     Date operator+(const Date& other);
+    Date operator=(const Date& other);
 };
 
 Date::Date(int y, int m, int d)
@@ -54,7 +55,7 @@ void Date::operator++()
     }
 }
 
-Date::Date(const Date& other){
+Date Date::operator+(const Date& other){
     day = day + other.day;
     if (day > 30){
         day = (day + other.day) % 30;
@@ -69,6 +70,7 @@ Date::Date(const Date& other){
     
 
 }
+
 
 int main(int argc, char const *argv[])
 {
